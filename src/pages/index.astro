@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import Header from "../components/header.astro";
+import Layout from '../layouts/Layout.astro';
 ---
 
 <html lang="fr">
@@ -12,7 +13,9 @@ import Header from "../components/header.astro";
 	</head>
 	
 	<body>
-		<Header/>
-		<h1>ACCUEIL</h1>
+		<Layout titre="ACCUEIL">
+            <h1>ACCEUIL</h1>
+        </Layout>
+		
 	</body>
 </html>
