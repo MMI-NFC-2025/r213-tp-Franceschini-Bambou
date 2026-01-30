@@ -9,43 +9,45 @@ const offres = await getOffres();
 
 
 <Layout titre="Les offres">
-  <h1>Nos offres</h1>
+    <div class ="bg-fuchsia-150">
+        <h1 class = "items-center justify-center flex text-fuchsia-950 font-bold">Nos offres</h1>
 
-  <div>
-    {
-      offres.map((offre) => (
-         <div class="offre" data-favori={offre.favori}>
-            <!-- Contenu de l'offre -->
-            <Card offre={offre} />
-        </div>
+        <div class ="items-center justify-center flex flex-col gap-2">
+            {
+            offres.map((offre) => (
+                <div class="offre" data-favori={offre.favori}>
+                    <!-- Contenu de l'offre -->
+                    <Card offre={offre} />
+                </div>
         
-      ))
-    }
-
-<button id="favori-button" class="bg-slate-600 rounded-lg text-white p-2">Afficher les favoris</button>
-
-
-<script>
-    //@ts-nocheck
-    const button = document.getElementById('favori-button');
-    let showOnlyFavorites = false;
-    
-    button?.addEventListener('click', () => {
-        showOnlyFavorites = !showOnlyFavorites;
-        const offres = document.querySelectorAll('.offre');
-        
-        offres.forEach(offre => {
-            const isFavori = offre.dataset.favori === 'true';
-            console.log(isFavori);
-            if (showOnlyFavorites) {
-                offre.style.display = isFavori ? 'block' : 'none';
-                button.textContent = 'Afficher tout';
-            } else {
-                offre.style.display = 'block';
-                button.textContent = 'Afficher les favoris';
+             ))
             }
+
+        <button id="favori-button" class="bg-fuchsia-900 rounded-lg text-white p-2">Afficher les favoris</button>
+
+
+        <script>
+         //@ts-nocheck
+            const button = document.getElementById('favori-button');
+            let showOnlyFavorites = false;
+    
+            button?.addEventListener('click', () => {
+                showOnlyFavorites = !showOnlyFavorites;
+                const offres = document.querySelectorAll('.offre');
+        
+            offres.forEach(offre => {
+                const isFavori = offre.dataset.favori === 'true';
+                console.log(isFavori);
+                if (showOnlyFavorites) {
+                    offre.style.display = isFavori ? 'block' : 'none';
+                    button.textContent = 'Afficher tout';
+                } else {
+                    offre.style.display = 'block';
+                    button.textContent = 'Afficher les favoris';
+                }
+            });
         });
-    });
-</script>
-</div>
+        </script>
+        </div>
+    </div>
 </Layout>
