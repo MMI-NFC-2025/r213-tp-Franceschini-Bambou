@@ -3,42 +3,8 @@ import '../styles/global.css'
 import Header from "../components/header.astro";
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/card.astro';
-
-const offres = [
-    {
-        "adresse": "7, rue du paradis, 83000, Saint-Raphaël",
-        "favori": true,
-        "id": "o3u6t0ugtaw189t",
-        "nbChambres": 20,
-        "nbSdb": 25,
-        "nomMaison": "Maison Villa",
-        "prix": 200000000,
-        "surface": 800,
-        "imgUrl": "./images/villa.webp"
-    },
-    {
-        "adresse": "85 rue des Saulles, 25000, Besançon",
-        "favori": false,
-        "id": "ianz3piv5rw2l30",
-        "nbChambres": 4,
-        "nbSdb": 2,
-        "nomMaison": "maison cottage",
-        "prix": 250000,
-        "surface": 200,
-        "imgUrl": "./images/cottage.jpg"
-    },
-    {
-        "adresse": "20 rue des Roses, 25200, Montbéliard",
-        "favori": false,
-        "id": "xmiflh2725vto1k",
-        "nbChambres": 5,
-        "nbSdb": 3,
-        "nomMaison": "Maison rose",
-        "prix": 4550,
-        "surface": 100,
-        "imgUrl": "./images/rose.jpg"
-    }
-]
+import { getOffres } from '../js/backend.mjs'; 
+const offres = await getOffres();
 ---
 
 
