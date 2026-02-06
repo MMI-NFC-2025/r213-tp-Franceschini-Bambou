@@ -1,0 +1,19 @@
+---
+import Layout  from '../../../layouts/Layout.astro';
+
+import { byPrix } from '../../../js/backend.mjs';
+import Card from '../../../components/card.astro';
+const { prix } = Astro.params;
+const recordsPrix = await byPrix(prix);
+---
+
+<Layout>
+    <h1 class="text-fuchsia-950 font-bold">Maisons de moins de {prix} €</h1>
+    <ul>
+        {
+            recordsPrix.map((record) => (
+                <Card offre={record} />
+            ))
+        }
+    </ul>
+</Layout>

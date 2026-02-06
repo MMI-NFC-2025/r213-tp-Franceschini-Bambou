@@ -4,7 +4,7 @@ import Layout  from '../../../layouts/Layout.astro';
 import { bySurface } from '../../../js/backend.mjs';
 import Card from '../../../components/card.astro';
 const { surface } = Astro.params;
-const records = await bySurface(surface);
+const recordsSurface = await bySurface(surface);
 ---
 
 
@@ -12,7 +12,7 @@ const records = await bySurface(surface);
     <h1 class="text-fuchsia-950 font-bold">Maisons de plus de {surface} m²</h1>
     <ul>
         {
-            records.map((record) => (
+            recordsSurface.map((record) => (
                 <Card offre={record} />
             ))
         }

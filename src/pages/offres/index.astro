@@ -1,11 +1,8 @@
 ---
-import '../../styles/global.css'
-import Header from "../../components/header.astro";
 import Layout from '../../layouts/Layout.astro';
 import Card from '../../components/card.astro';
-import { getOffres, bySurface } from '../../js/backend.mjs'; 
+import { getOffres } from '../../js/backend.mjs'; 
 const offres = await getOffres();
-const records = await bySurface();
 ---
 
 
@@ -24,7 +21,8 @@ const records = await bySurface();
              ))
             }
 
-        <a href={`/offres/surface/${records}`} class="bg-fuchsia-900 rounded-lg text-white p-2 no-underline hover:bg-fuchsia-800 transition">Maisons > 80 m²</a>
+        <a href={`/offres/surface/80`} class="bg-fuchsia-900 rounded-lg text-white p-2 no-underline hover:bg-fuchsia-800 transition">Maisons supérieures à 80m²</a>
+        <a href={`/offres/prix/300000`} class="bg-fuchsia-900 rounded-lg text-white p-2 no-underline hover:bg-fuchsia-800 transition">Maisons inférieures à 300000€ </a>
         <button id="favori-button" class="bg-fuchsia-900 rounded-lg text-white p-2">Afficher les favoris</button>
 
 

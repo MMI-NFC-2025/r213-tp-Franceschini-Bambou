@@ -29,6 +29,12 @@ export async function getOffre(id) {
 }
 
 export async function bySurface(surface) { 
-    const records = await db.collection('Maison').getFullList({filter: `surface > ${surface}`});
-    return records; 
+    const recordsSurface = await db.collection('Maison').getFullList({filter: `surface > ${surface}`});
+    return recordsSurface; 
 }
+
+export async function byPrix(prix) { 
+    const recordsPrix = await db.collection('Maison').getFullList({filter: `prix < ${prix}`});
+    return recordsPrix; 
+}
+
