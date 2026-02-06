@@ -27,3 +27,8 @@ export async function getOffre(id) {
         return null;
     }
 }
+
+export async function bySurface(surface) { 
+    const records = await db.collection('Maison').getFullList({filter: `surface > ${surface}`});
+    return records; 
+}
